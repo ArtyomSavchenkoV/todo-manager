@@ -5,10 +5,13 @@ import './developer-tools.scss';
 
 
 const DeveloperTools = ({ store }) => {
+    const showStore = () => {
+        console.log(store);
+    };
     
     return (
         <div className="developer-tools">
-            <button >##Show Store</button>
+            <button onClick={showStore}>##Show Store</button>
         </div>
     );
 };
