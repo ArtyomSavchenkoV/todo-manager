@@ -4,27 +4,29 @@ import compose from '../../utils/compose';
 import { withLocalizationService } from '../hoc';
 
 import Spinner from '../common/spinner';
+import DeveloperTools from '../developer-tools';
 
 import Layout from './views/layout';
 
 
 const App = ({
-    store,
+    appState,
     localize
 }) => {
     
     const content = <Spinner />;
+    const developerTools = appState.isDeveloping ? <DeveloperTools /> : null;
     
     return (
-        <Layout content={content} />
+        <Layout content={content} developerTools={developerTools}/>
     );
 };
 
 
 
-const mapStoreToProps = (store) => {
+const mapStoreToProps = ({ appState }) => {
     return {
-        store
+        appState
     }
 };
 
