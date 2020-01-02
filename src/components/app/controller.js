@@ -18,7 +18,7 @@ const App = ({
     const developerTools = appState.isDeveloping ? <DeveloperTools /> : null;
     
     return (
-        <Layout content={content} developerTools={developerTools}/>
+        <Layout developerTools={developerTools}/>
     );
 };
 
