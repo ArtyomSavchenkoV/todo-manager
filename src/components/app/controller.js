@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import compose from '../../utils/compose';
 import { withLocalizationService } from '../hoc';
 
-import Spinner from '../common/spinner';
 import DeveloperTools from '../developer-tools';
 
 import Layout from './views/layout';
@@ -14,7 +13,6 @@ const App = ({
     localize
 }) => {
     
-    const content = <Spinner />;
     const developerTools = appState.isDeveloping ? <DeveloperTools /> : null;
     
     return (
