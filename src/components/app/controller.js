@@ -4,6 +4,7 @@ import compose from '../../utils/compose';
 import { withLocalizationService } from '../hoc';
 
 import DeveloperTools from '../developer-tools';
+import Header from '../header';
 
 import Layout from './views/layout';
 
@@ -14,9 +15,13 @@ const App = ({
 }) => {
     
     const developerTools = appState.isDeveloping ? <DeveloperTools /> : null;
+    const header = <Header />;
     
     return (
-        <Layout developerTools={developerTools}/>
+        <Layout 
+            developerTools={developerTools} 
+            header={header}
+        />
     );
 };
 

@@ -3,7 +3,8 @@ import React from 'react';
 import './layout.scss';
 
 const Layout = ({
-    developerTools = null
+    developerTools,
+    header
 }) => {
     const developerToolsContainer = developerTools !== null ? (
         <div className="developer-tools-container">
@@ -14,6 +15,9 @@ const Layout = ({
     return (
         <div className="app">
             {developerToolsContainer}
+            <div className="header-container">
+                {header}
+            </div>
         </div>
     );
 };
