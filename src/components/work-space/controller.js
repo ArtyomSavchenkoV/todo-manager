@@ -3,7 +3,7 @@ import React from 'react';
 import BoardsList from '../boards-list'; 
 
 
-const controller = () => {
+const Controller = () => {
 
     return (
         <BoardsList />
@@ -11,4 +11,4 @@ const controller = () => {
 };
 
 
-export default controller;
+export default Controller;
