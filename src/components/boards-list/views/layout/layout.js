@@ -8,7 +8,7 @@ const Layout = ({
 }) => {
     const boardsElements = boardsElementsArray.map((el) => {
         return (
-            <div key={el.key} className="board-item-container col-lg-2 col-md-4 col-sm-6">
+            <div key={el.key} className="board-item-container col-lg-2 col-md-4 col-sm-6 float-left">
                 {el.element}
             </div>
         );

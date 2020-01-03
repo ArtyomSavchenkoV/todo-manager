@@ -22,7 +22,7 @@ const Controller = ({
     let boardsElements = boardsDataArray.map((el) => {
         return {
             key: el.id,
-            element: <BoardItem key={el.id} />
+            element: <BoardItem key={el.id} name={el.name} boardId={el.id} />
         }
     });
 

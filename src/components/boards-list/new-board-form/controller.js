@@ -45,6 +45,11 @@ class Controller extends Component {
             isNameFieldValid
         } = this.state; 
         if (isNameFieldValid) {
+            this.setState({
+                isFormShowed: false,
+                nameFieldValue: '',
+                isNameFieldValid: false
+            });
             onConfirm({
                 name: nameFieldValue
             });

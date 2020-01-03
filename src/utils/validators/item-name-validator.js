@@ -3,7 +3,7 @@ const itemNameValidator = (value) => {
         return false;
     }
 
-    const regexp = /^[a-z1-9]{1,1}[a-z1-9а-я_\-]{0,31}$/;       
+    const regexp = /^[а-яёa-z1-9]{1,1}[а-яёa-z1-9_/-/ ]{0,31}$/i;       
     return regexp.test(value);
 };
 

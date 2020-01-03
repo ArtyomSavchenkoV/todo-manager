@@ -4,8 +4,9 @@
     height: 100%;
     overflow: hidden;
 
-    background: linear-gradient(#ddd, #eee, #eee, #ddd); 
-    border-radius: 10px;
+    background: linear-gradient(rgba(220,220,220,.7), rgba(240,240,240,.7), rgba(240,240,240,.7), rgba(220,220,220,.7)); 
+    border-radius: 7px;
+    border: 1px solid #ccc;
 
     .showing-form-button-container {
         position: absolute;

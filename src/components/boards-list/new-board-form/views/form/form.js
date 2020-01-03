@@ -13,6 +13,12 @@ const Form = ({
 }) => {
     const nameFieldNotValidClass = isNameFieldValid ? '' : ' not-valid';
 
+    const onEnterPress = (key) => {
+        if(key.charCode === 13){
+            onConfirm();    
+        } 
+    };
+
     return (
         <div className="form">
             <div className="fields">
@@ -21,7 +27,12 @@ const Form = ({
                         {nameFieldLabel}
                     </div>
                     <div className={`input${nameFieldNotValidClass}`}>
-                        <input type="text" value={nameFieldValue} onChange={(el) => onEditField(el.target.value)}/>
+                        <input 
+                            type="text" 
+                            value={nameFieldValue} 
+                            onChange={(el) => onEditField(el.target.value)}
+                            onKeyPress={onEnterPress}
+                        />
                     </div>
                 </div>
             </div>
