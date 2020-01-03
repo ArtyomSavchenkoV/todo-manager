@@ -11,6 +11,7 @@ const Form = ({
     onClose,
     onEditField
 }) => {
+    const nameFieldNotValidClass = isNameFieldValid ? '' : ' not-valid';
 
     return (
         <div className="form">
@@ -19,7 +20,7 @@ const Form = ({
                     <div className="title">
                         {nameFieldLabel}
                     </div>
-                    <div className="input">
+                    <div className={`input${nameFieldNotValidClass}`}>
                         <input type="text" value={nameFieldValue} onChange={(el) => onEditField(el.target.value)}/>
                     </div>
                 </div>

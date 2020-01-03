@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withLocalizationService } from '../../hoc';
+import itemNameValidator from '../../../utils/validators/item-name-validator';
 
 import Layout from './views/layout';
 import ShowingFormButton from './views/showing-form-button';
@@ -12,7 +13,7 @@ class Controller extends Component {
         this.state = {
             isFormShowed: false,
             nameFieldValue: '',
-            isNameFieldValid: true
+            isNameFieldValid: false
         };
     }
 
@@ -28,7 +29,10 @@ class Controller extends Component {
 
 
     editField = (value) => {
-        this.setState({nameFieldValue: value});
+        this.setState({
+            nameFieldValue: value,
+            isNameFieldValid: itemNameValidator(value)
+        });
     }
 
 

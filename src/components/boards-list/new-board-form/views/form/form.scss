@@ -11,6 +11,11 @@
             input {
                 width: 100%;
                 padding: 0;
+                border: 1px solid #ccc;
+            }
+            .input.not-valid input {
+                box-shadow: 0 0 3px #f00;
+                border: 1px solid #a00;
             }
         }
     }
