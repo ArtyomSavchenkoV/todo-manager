@@ -1,5 +1,5 @@
 import appStateReducer from './app-state-reducer';
-import boardsStoreReducer from './boards-store-reducer';
+import boardsListReducer from './boards-list-reducer';
 
 
 const initStore = {};
@@ -10,7 +10,7 @@ const reducer = (store = initStore, action) => {
         default: return {
             ...store,
             appState: appStateReducer(store.appState, action),
-            boardsStore: boardsStoreReducer(store.boardsStore, action)
+            boardsList: boardsListReducer(store.boardsStore, action)
         };
     }
 }

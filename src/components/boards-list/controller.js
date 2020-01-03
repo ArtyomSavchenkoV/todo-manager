@@ -7,11 +7,11 @@ import BoardItem from './views/board-item';
 import NewBoardForm from './new-board-form';
 
 const Controller = ({
-    boardsStore
+    boardsList
 }) => {
     const {
         boards: boardsDataArray
-    } = boardsStore;
+    } = boardsList;
 
     let boardsElements = boardsDataArray.map((el) => {
         return {
@@ -33,9 +33,9 @@ const Controller = ({
 };
 
 
-const mapStoreToProps = ({ boardsStore }) => {
+const mapStoreToProps = ({ boardsList }) => {
     return {
-        boardsStore
+        boardsList
     }
 }
 
