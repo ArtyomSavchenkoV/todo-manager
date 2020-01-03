@@ -22,7 +22,7 @@ const Controller = ({
 
     boardsElements.push({
             key: 'new-board-form',
-            element: <NewBoardForm />
+            element: <NewBoardForm onConfirm={(data) => console.log(data)} />
         });
 
     return (
