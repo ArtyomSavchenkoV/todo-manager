@@ -4,7 +4,7 @@ import compose from '../../utils/compose';
 
 import Layout from './views/layout';
 import BoardItem from './views/board-item';
-import NewBoardForm from './views/new-board-form';
+import NewBoardForm from './new-board-form';
 
 const Controller = ({
     boardsStore
