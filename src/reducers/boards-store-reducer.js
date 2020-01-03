@@ -1,7 +1,3 @@
-/*
-*   boardsStore structure
-*
-*/
 const initialBoardsStore = {
     boards: []
 };
@@ -26,7 +22,7 @@ const boardsStoreReducer = (boardsStore = initialBoardsStore, action) => {
                 };
             }
         }
-    };   
+    }   
 };
 
 
