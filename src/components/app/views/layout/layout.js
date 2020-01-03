@@ -4,7 +4,8 @@ import './layout.scss';
 
 const Layout = ({
     developerTools,
-    header
+    header,
+    workSpace
 }) => {
     const developerToolsContainer = developerTools !== null ? (
         <div className="developer-tools-container">
@@ -17,6 +18,9 @@ const Layout = ({
             {developerToolsContainer}
             <div className="header-container">
                 {header}
+            </div>
+            <div className="work-space-container">
+                {workSpace}
             </div>
         </div>
     );

@@ -5,6 +5,7 @@ import { withLocalizationService } from '../hoc';
 
 import DeveloperTools from '../developer-tools';
 import Header from '../header';
+import WorkSpace from '../work-space';
 
 import Layout from './views/layout';
 
@@ -16,11 +17,13 @@ const App = ({
     
     const developerTools = appState.isDeveloping ? <DeveloperTools /> : null;
     const header = <Header />;
+    const workSpace = <WorkSpace />;
     
     return (
         <Layout 
             developerTools={developerTools} 
             header={header}
+            workSpace={workSpace}
         />
     );
 };
