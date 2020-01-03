@@ -45,7 +45,9 @@ class Controller extends Component {
             isNameFieldValid
         } = this.state; 
         if (isNameFieldValid) {
-            onConfirm(nameFieldValue);
+            onConfirm({
+                name: nameFieldValue
+            });
         }
     }
 

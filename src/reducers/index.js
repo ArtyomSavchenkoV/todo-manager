@@ -10,7 +10,7 @@ const reducer = (store = initStore, action) => {
         default: return {
             ...store,
             appState: appStateReducer(store.appState, action),
-            boardsList: boardsListReducer(store.boardsStore, action)
+            boardsList: boardsListReducer(store.boardsList, action)
         };
     }
 }

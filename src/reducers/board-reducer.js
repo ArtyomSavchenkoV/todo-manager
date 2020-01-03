@@ -1,4 +1,5 @@
 const initialBoardStore = {
+    id: null,
     name: null,
     cardList: []
 };
@@ -12,6 +13,7 @@ const boardReducer = (boardStore = initialBoardStore, action) => {
             } = action;
             return {
                 ...boardStore,
+                id: payload.id,
                 name: payload.name
             }
         }

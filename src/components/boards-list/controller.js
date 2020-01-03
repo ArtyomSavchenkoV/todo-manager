@@ -2,12 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import compose from '../../utils/compose';
 
+import {
+    addNewBoard
+} from '../../actions';
+
 import Layout from './views/layout';
 import BoardItem from './views/board-item';
 import NewBoardForm from './new-board-form';
 
 const Controller = ({
-    boardsList
+    boardsList,
+
+    addNewBoard
 }) => {
     const {
         boards: boardsDataArray
@@ -22,7 +28,7 @@ const Controller = ({
 
     boardsElements.push({
             key: 'new-board-form',
-            element: <NewBoardForm onConfirm={(data) => console.log(data)} />
+            element: <NewBoardForm onConfirm={addNewBoard} />
         });
 
     return (
@@ -37,8 +43,12 @@ const mapStoreToProps = ({ boardsList }) => {
     return {
         boardsList
     }
-}
+};
+
+const mapDispatchToProps = {
+    addNewBoard
+};
 
 export default compose(
-    connect(mapStoreToProps)
+    connect(mapStoreToProps, mapDispatchToProps)
 )(Controller);
