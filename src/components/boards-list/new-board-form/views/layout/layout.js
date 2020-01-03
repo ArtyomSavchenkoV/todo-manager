@@ -4,14 +4,24 @@ import './layout.scss';
 
 
 const Layout = ({
-    showingFormButton
+    isFormShowed,
+    showingFormButton,
+    form
 }) => {
 
-    return (
-        <div className="new-board-form">
+    const content = isFormShowed ? (
+            <div className="form-container">
+                {form}
+            </div>
+        ) : (
             <div className="showing-form-button-container">
                 {showingFormButton}
             </div>
+        );
+
+    return (
+        <div className="new-board-form">
+            {content}
         </div>
     );
 };

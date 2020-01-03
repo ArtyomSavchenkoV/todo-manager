@@ -2,6 +2,10 @@
     position: relative;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+
+    background: linear-gradient(#ddd, #eee, #eee, #ddd); 
+    border-radius: 10px;
 
     .showing-form-button-container {
         position: absolute;
@@ -10,5 +14,33 @@
         width: 100%;
         height: 100%;
     }
+
+    .form-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+    }
 }
 
+.boards-list .new-board-form.form-opened {
+    .showing-form-button-container {
+        //animation: hide-element 1.5s linear;
+    }
+}
+
+/*@keyframes hide-element {
+    0% {
+        display: block;
+        transform: rotate(0);
+    }
+    90% {
+        
+    }
+    100% {
+        transform: rotate(360deg);
+        top: -100%;      
+    }
+}*/

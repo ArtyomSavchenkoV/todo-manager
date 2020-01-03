@@ -1,16 +1,37 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 import Layout from './views/layout';
 import ShowingFormButton from './views/showing-form-button';
+import Form from './views/form';
 
 
 class Controller extends Component {
+    constructor() {
+        super();
+        this.state = {
+            isFormShowed: false
+        };
+    }
+
+    showForm = () => {
+        this.setState({isFormShowed: true});
+        console.log('showForm');
+    }
 
     render() {
-        const showingFormButton = <ShowingFormButton />;
+        const {
+            isFormShowed
+        } = this.state;  
+
+        const showingFormButton = !isFormShowed ? <ShowingFormButton onClick={this.showForm}/> : null;
+        const form = isFormShowed ? <Form /> : null;
 
         return (
-            <Layout showingFormButton={showingFormButton} />
+            <Layout 
+                isFormShowed={isFormShowed}
+                showingFormButton={showingFormButton}
+                form={form}
+            />
         );
     }
 };
