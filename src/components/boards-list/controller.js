@@ -4,6 +4,7 @@ import compose from '../../utils/compose';
 
 import Layout from './views/layout';
 import BoardItem from './views/board-item';
+import NewBoardForm from './views/new-board-form';
 
 const Controller = ({
     boardsStore
@@ -12,9 +13,17 @@ const Controller = ({
         boards: boardsDataArray
     } = boardsStore;
 
-    const boardsElements = boardsDataArray.map((el) => {
-        return <BoardItem key={el.id} />
+    let boardsElements = boardsDataArray.map((el) => {
+        return {
+            key: el.id,
+            element: <BoardItem key={el.id} />
+        }
     });
+
+    boardsElements.push({
+            key: 'new-board-form',
+            element: <NewBoardForm />
+        });
 
     return (
         <Layout

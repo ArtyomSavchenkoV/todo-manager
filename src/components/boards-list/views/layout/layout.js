@@ -3,11 +3,20 @@ import React from 'react';
 import './layout.scss';
 
 
-const Layout = () => {
+const Layout = ({
+    boardsElements: boardsElementsArray
+}) => {
+    const boardsElements = boardsElementsArray.map((el) => {
+        return (
+            <div key={el.key} className="board-item-container col-lg-2 col-md-4 col-sm-6">
+                {el.element}
+            </div>
+        );
+    });
 
     return (
         <div className="boards-list">
-            ##Hardcode boards-list
+            {boardsElements}
         </div>
     );
 };
