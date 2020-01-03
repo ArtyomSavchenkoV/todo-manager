@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import compose from '../../utils/compose';
+import { withLocalizationService } from '../hoc';
 
 import {
     addNewBoard
@@ -13,7 +14,9 @@ import NewBoardForm from './new-board-form';
 const Controller = ({
     boardsList,
 
-    addNewBoard
+    addNewBoard,
+
+    localize
 }) => {
     const {
         boards: boardsDataArray
@@ -22,7 +25,7 @@ const Controller = ({
     let boardsElements = boardsDataArray.map((el) => {
         return {
             key: el.id,
-            element: <BoardItem key={el.id} name={el.name} boardId={el.id} />
+            element: <BoardItem key={el.id} name={el.name} boardId={el.id} boardIdLocalizedText={localize('boardList.boardId')}/>
         }
     });
 
@@ -50,5 +53,6 @@ const mapDispatchToProps = {
 };
 
 export default compose(
+    withLocalizationService,
     connect(mapStoreToProps, mapDispatchToProps)
 )(Controller);

@@ -5,7 +5,8 @@ import './board-item.scss';
 
 const BoardItem = ({
     name,
-    boardId
+    boardId,
+    boardIdLocalizedText
 }) => {
     return (
         <div className="board-item">
@@ -13,7 +14,7 @@ const BoardItem = ({
                 {name}
             </div>
             <div className="board-id">
-                {boardId}
+                {boardIdLocalizedText}: {boardId}
             </div>
         </div>
     );
