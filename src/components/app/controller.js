@@ -3,28 +3,49 @@ import { connect } from 'react-redux';
 import compose from '../../utils/compose';
 import { withLocalizationService } from '../hoc';
 
-import Spinner from '../common/spinner';
+import DeveloperTools from '../developer-tools';
+import Header from '../header';
+import WorkSpace from '../work-space';
 
 import Layout from './views/layout';
+import AppCurtain from './views/app-curtain';
 
 
 const App = ({
-    store,
+    appState,
     localize
 }) => {
+    const {
+        isDeveloping,
+        modalWindow
+    } = appState;
     
-    const content = <Spinner />;
+    const developerTools = isDeveloping ? <DeveloperTools /> : null;
+    const header = <Header />;
+    const workSpace = <WorkSpace />;
+    const appCurtain = modalWindow === null ? null : (
+        <AppCurtain onClick={modalWindow.onClickSpaceArea}>
+            {modalWindow.component}
+        </AppCurtain>
+    );
     
     return (
-        <Layout content={content} />
+        <React.Fragment>
+            <Layout 
+                developerTools={developerTools} 
+                header={header}
+                workSpace={workSpace}
+            />
+            {appCurtain}
+        </React.Fragment>
     );
 };
 
 
 
-const mapStoreToProps = (store) => {
+const mapStoreToProps = ({ appState }) => {
     return {
-        store
+        appState
     }
 };
 

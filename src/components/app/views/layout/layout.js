@@ -1,15 +1,26 @@
 import React from 'react';
 
-import './layout.css';
+import './layout.scss';
 
 const Layout = ({
-    content
+    developerTools,
+    header,
+    workSpace
 }) => {
+    const developerToolsContainer = developerTools !== null ? (
+        <div className="developer-tools-container">
+            {developerTools}
+        </div>
+    ) : null;
 
     return (
         <div className="app">
-            <div className="content-container">
-                {content}
+            {developerToolsContainer}
+            <div className="header-container">
+                {header}
+            </div>
+            <div className="work-space-container">
+                {workSpace}
             </div>
         </div>
     );
