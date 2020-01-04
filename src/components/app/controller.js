@@ -4,7 +4,7 @@ import compose from '../../utils/compose';
 import { withLocalizationService } from '../hoc';
 
 import DeveloperTools from '../developer-tools';
-import Header from '../header';
+import Header from '../app-header';
 import WorkSpace from '../work-space';
 
 import Layout from './views/layout';
