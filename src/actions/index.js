@@ -4,7 +4,8 @@ import {
 } from './app-state-actions';
 
 import {
-    addNewBoard
+    addNewBoard,
+    removeBoard
 } from './board-list-actions';
 
 
@@ -12,5 +13,6 @@ export {
     setModalWindow,
     removeModalWindow,
 
-    addNewBoard
+    addNewBoard,
+    removeBoard
 };

@@ -32,7 +32,7 @@ const boardsListReducer = (boardsListStore = initialBoardsListStore, action) => 
         }
 
 
-        case 'RM_BOARD': {
+        case 'REMOVE_BOARD': {
             const {
                 payload
             } = action;

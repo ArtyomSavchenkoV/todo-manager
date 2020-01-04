@@ -6,6 +6,15 @@ const addNewBoard = (payload) => {
 };
 
 
+const removeBoard = (boardId) => {
+    return {
+        type: 'REMOVE_BOARD',
+        payload: boardId
+    };
+};
+
+
 export {
-    addNewBoard
+    addNewBoard,
+    removeBoard
 };
