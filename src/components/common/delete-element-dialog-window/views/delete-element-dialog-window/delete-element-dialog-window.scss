@@ -1,0 +1,35 @@
+.delete-element-dialog-window {
+    margin: 0 auto;
+
+    .form {
+        padding-top: 30px;
+
+        .title {
+            color: #dc682f;
+            font-size: 32px;
+        }
+        .description {
+
+        }
+    }
+    .icon{
+        text-align: center;
+        font-size: 160px;
+        color: #dc682f;
+    }
+    .buttons {
+        position: absolute;
+        bottom: 30px;
+        left: 0px;
+
+        button {
+            width: 100%;
+        }
+    }
+}
+
+.delete-element-dialog-window::after {
+    content: '';
+    display: block;
+    clear: both;
+}
