@@ -7,6 +7,7 @@ import {
     setModalWindow,
     removeModalWindow,
     addNewBoard,
+    removeBoard
 } from '../../actions';
 
 import DeleteElementDialogWindow from '../common/delete-element-dialog-window';
@@ -21,6 +22,7 @@ const Controller = ({
     setModalWindow,
     removeModalWindow,
     addNewBoard,
+    removeBoard,
 
     localize
 }) => {
@@ -33,7 +35,7 @@ const Controller = ({
             component: (
                 <DeleteElementDialogWindow
                     descriptionLocalizedText={localize('boardList.rmBoardDecription') + ': ' + name}
-                    onConfirm={()=>{}}
+                    onConfirm={()=>removeBoard(id)}
                     onCancel={removeModalWindow}
                 />
             ),
@@ -77,7 +79,8 @@ const mapStoreToProps = ({ boardsList }) => {
 const mapDispatchToProps = {
     setModalWindow,
     removeModalWindow,
-    addNewBoard
+    addNewBoard,
+    removeBoard
 };
 
 export default compose(
