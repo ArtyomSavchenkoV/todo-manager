@@ -1,14 +1,32 @@
 import React from 'react';
+import { withLocalizationService } from '../../hoc';
 
 import DeleteElementDialogWindow from './views/delete-element-dialog-window';
 
 
-const Controller = (props) => {
+const Controller = ({
+    descriptionLocalizedText,
+    onConfirm,
+    onCancel,
+
+    localize
+}) => {
+    const onConfirmWithClose = () => {
+        onConfirm();
+        onCancel();
+    }
     
     return (
-        <DeleteElementDialogWindow {...props}/>
+        <DeleteElementDialogWindow 
+            titleLocalizedText={localize('deleting')}
+            descriptionLocalizedText={descriptionLocalizedText}
+            confirmLocalizedText={localize('confirm')}
+            cancelLocalizedText={localize('cancel')}
+            onConfirm={onConfirmWithClose}
+            onCancel={onCancel}
+        />
     );
 };
 
 
-export default Controller;
+export default withLocalizationService(Controller);
