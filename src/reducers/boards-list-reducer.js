@@ -30,6 +30,34 @@ const boardsListReducer = (boardsListStore = initialBoardsListStore, action) => 
                 ]
             }
         }
+
+
+        case 'RM_BOARD': {
+            const {
+                payload
+            } = action;
+
+            const {
+                boards
+            } = boardsListStore;
+
+            const itemIndex = boards.findIndex(({ id }) => id === payload);
+
+            const newBoards = (itemIndex > -1 && itemIndex < boards.length) ? (
+                [
+                    ...boards.slice(0, itemIndex),
+                    ...boards.slice(itemIndex + 1)
+                ]
+            ) : (
+                [...boards]
+            );
+
+            return {
+                ...boardsListStore,
+                boards: newBoards
+            }
+        }
+
     
         default: { 
             const { payload = {} } = action;

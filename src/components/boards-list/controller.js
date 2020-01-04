@@ -32,7 +32,7 @@ const Controller = ({
         setModalWindow({
             component: (
                 <DeleteElementDialogWindow
-                    descriptionLocalizedText={localize('boardList.rmBoardDecription')}
+                    descriptionLocalizedText={localize('boardList.rmBoardDecription') + ': ' + name}
                     onConfirm={()=>{}}
                     onCancel={removeModalWindow}
                 />
