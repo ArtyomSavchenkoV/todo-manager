@@ -15,16 +15,19 @@ const App = ({
     appState,
     localize
 }) => {
+    const {
+        isDeveloping,
+        modalWindow
+    } = appState;
     
-    const developerTools = appState.isDeveloping ? <DeveloperTools /> : null;
+    const developerTools = isDeveloping ? <DeveloperTools /> : null;
     const header = <Header />;
     const workSpace = <WorkSpace />;
-    //TODO: Make showing modal window when modal window is available.
-    const appCurtain = null;/*(
-        <AppCurtain onClick={()=>console.log('cl')}>
-            <DeleteElementDialogWindow />
+    const appCurtain = modalWindow === null ? null : (
+        <AppCurtain onClick={modalWindow.onClickSpaceArea}>
+            {modalWindow.component}
         </AppCurtain>
-    );*/
+    );
     
     return (
         <React.Fragment>
