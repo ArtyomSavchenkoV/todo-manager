@@ -34,7 +34,7 @@ const Controller = ({
         setModalWindow({
             component: (
                 <DeleteElementDialogWindow
-                    descriptionLocalizedText={localize('boardList.rmBoardDecription') + ': ' + name}
+                    descriptionLocalizedText={localize('boardsList.rmBoardDecription') + ': ' + name}
                     onConfirm={()=>removeBoard(id)}
                     onCancel={removeModalWindow}
                 />
@@ -50,7 +50,7 @@ const Controller = ({
                 <BoardItem 
                     key={el.id} name={el.name} 
                     boardId={el.id} 
-                    boardIdLocalizedText={localize('boardList.boardId')}
+                    boardIdLocalizedText={localize('boardsList.boardId')}
                     onDelete={()=>onDelete(el.id, el.name)}
                 />
             )
