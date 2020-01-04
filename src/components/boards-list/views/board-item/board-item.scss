@@ -8,6 +8,19 @@
     border-radius: 7px;
     border: 1px solid #bbb;
     user-select: none;
+
+    .delete-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 0 4px;
+        color: #666;
+        cursor: pointer;
+    }
+
+    .delete-button:hover {
+        color: #c00;
+    }
     
     .board-name {
         font-size: 24px;
