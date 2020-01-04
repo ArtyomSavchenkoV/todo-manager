@@ -28,6 +28,7 @@ const Form = ({
                     </div>
                     <div className={`input${nameFieldNotValidClass}`}>
                         <input 
+                            autoFocus
                             type="text" 
                             value={nameFieldValue} 
                             onChange={(el) => onEditField(el.target.value)}
