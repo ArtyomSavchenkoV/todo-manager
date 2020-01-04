@@ -5,7 +5,7 @@ const initialBoardStore = {
 };
 
 
-const boardReducer = (boardStore = initialBoardStore, action) => {
+const boardReducer = (boardStore = initialBoardStore, action, { counters }) => {
     switch(action.type) {
         case 'ADD_NEW_BOARD': {
             const {
@@ -13,7 +13,7 @@ const boardReducer = (boardStore = initialBoardStore, action) => {
             } = action;
             return {
                 ...boardStore,
-                id: payload.id,
+                id: counters.boardId,
                 name: payload.name
             }
         }

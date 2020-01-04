@@ -1,32 +1,18 @@
 import boardReducer from './board-reducer';
 
 const initialBoardsListStore = {
-    boards: [],
-    lastBoardId: -1
+    boards: []
 };
 
 
-const boardsListReducer = (boardsListStore = initialBoardsListStore, action) => {
+const boardsListReducer = (boardsListStore = initialBoardsListStore, action, { counters }) => {
     switch(action.type) {
         case 'ADD_NEW_BOARD': {
-            const newBoardId = boardsListStore.lastBoardId + 1;
-            const {
-                type,
-                payload
-            } = action;
-            const newAction = {
-                type,
-                payload: {
-                    ...payload,
-                    id: newBoardId
-                }
-            };
             return {
                 ...boardsListStore,
-                lastBoardId: newBoardId,
                 boards: [
                     ...boardsListStore.boards,
-                    boardReducer(undefined, newAction)
+                    boardReducer(undefined, action, { counters })
                 ]
             }
         }
