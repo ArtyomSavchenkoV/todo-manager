@@ -4,7 +4,9 @@ import compose from '../../utils/compose';
 import { withLocalizationService } from '../hoc';
 
 import {
-    addNewBoard
+    setModalWindow,
+    removeModalWindow,
+    addNewBoard,
 } from '../../actions';
 
 import DeleteElementDialogWindow from '../common/delete-element-dialog-window';
@@ -16,6 +18,8 @@ import NewBoardForm from './new-board-form';
 const Controller = ({
     boardsList,
 
+    setModalWindow,
+    removeModalWindow,
     addNewBoard,
 
     localize
@@ -25,7 +29,16 @@ const Controller = ({
     } = boardsList;
 
     const onDelete = (id, name) => {
-        
+        setModalWindow({
+            component: (
+                <DeleteElementDialogWindow
+                    descriptionLocalizedText={localize('boardList.rmBoardDecription')}
+                    onConfirm={()=>{}}
+                    onCancel={removeModalWindow}
+                />
+            ),
+            onClickSpaceArea: removeModalWindow
+        });
     };
 
     let boardsElements = boardsDataArray.map((el) => {
@@ -62,6 +75,8 @@ const mapStoreToProps = ({ boardsList }) => {
 };
 
 const mapDispatchToProps = {
+    setModalWindow,
+    removeModalWindow,
     addNewBoard
 };
 
