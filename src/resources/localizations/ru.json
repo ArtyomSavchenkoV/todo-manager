@@ -1,5 +1,10 @@
 {
     "deleting": "Удаление",
     "confirm": "Принять",
-    "cancel": "Отмена"
+    "cancel": "Отмена",
+    "boardsList": {
+        "fieldName": "Название",
+        "boardId": "ID",
+        "rmBoardDecription": "Вы действительно хотите удалить доску"
+    }
 }
