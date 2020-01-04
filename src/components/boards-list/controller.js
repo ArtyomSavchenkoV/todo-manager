@@ -7,9 +7,11 @@ import {
     addNewBoard
 } from '../../actions';
 
+import DeleteElementDialogWindow from '../common/delete-element-dialog-window';
 import Layout from './views/layout';
 import BoardItem from './views/board-item';
 import NewBoardForm from './new-board-form';
+
 
 const Controller = ({
     boardsList,
@@ -22,6 +24,10 @@ const Controller = ({
         boards: boardsDataArray
     } = boardsList;
 
+    const onDelete = (id, name) => {
+        
+    };
+
     let boardsElements = boardsDataArray.map((el) => {
         return {
             key: el.id,
@@ -30,7 +36,7 @@ const Controller = ({
                     key={el.id} name={el.name} 
                     boardId={el.id} 
                     boardIdLocalizedText={localize('boardList.boardId')}
-                    onDelete={()=>{}}
+                    onDelete={()=>onDelete(el.id, el.name)}
                 />
             )
         }
