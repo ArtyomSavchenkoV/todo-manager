@@ -13,6 +13,7 @@ import TodoCard from '../todo-card';
 import DeleteElementDialogWindow from '../common/delete-element-dialog-window';
 import Layout from './views/layout';
 import Header from './views/header';
+import AddCardButton from './views/add-card-button';
 
 
 const Controller = ({
@@ -41,7 +42,8 @@ const Controller = ({
     };
 
     const title = listStore ? (listStore.name) : (localize('todoList.theListIsNot'));
-    const header = <Header title={title} onDelete={()=>onDelete({title, boardId, listId})} />
+    const header = <Header title={title} onDelete={() => onDelete({title, boardId, listId})} />
+    const addCardButton = <AddCardButton onClick={()=>{}} />;
 
     let cardsElements = [];
     if (listStore) {
@@ -60,7 +62,7 @@ const Controller = ({
     }
 
     return (
-        <Layout header={header} cardsElements={cardsElements} />    
+        <Layout header={header} cardsElements={cardsElements} addCardButton={addCardButton} />    
     );
 };
 

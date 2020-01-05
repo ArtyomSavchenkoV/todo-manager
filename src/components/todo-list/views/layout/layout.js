@@ -5,7 +5,8 @@ import './layout.scss';
 
 const Layout = ({
     cardsElements: cardsElementsArray,
-    header
+    header,
+    addCardButton
 }) => {
 
     return (
@@ -15,6 +16,9 @@ const Layout = ({
             </div>
             <div className="cards-container">
                 {cardsElements(cardsElementsArray)}
+            </div>
+            <div className="add-card-button-container">
+                {addCardButton}
             </div>
         </div>
     );
