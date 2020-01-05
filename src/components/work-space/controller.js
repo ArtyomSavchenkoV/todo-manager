@@ -16,12 +16,7 @@ const Controller = () => {
                     component={BoardsList}
                 />
                 <Route
-                    path='/board'
-                    exact
-                    component={BoardsList}
-                />
-                <Route
-                    path='/board/:id?'
+                    path='/:id?'
                     render={({ match }) => <TodoBoard boardId={match.params.id}/>}
                 />
                 <Route

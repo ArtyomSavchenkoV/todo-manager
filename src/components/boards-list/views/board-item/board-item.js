@@ -17,7 +17,7 @@ const BoardItem = ({
             <div className="delete-button" onClick={onDelete}>
                 <i className="fa fa-trash" aria-hidden="true"></i>
             </div>
-            <Link to={`/board/${boardId}`}>
+            <Link to={`/${boardId}`}>
                 <div className="button">
                     <div className="board-name">
                         {name}
