@@ -39,7 +39,7 @@ const Controller = ({
         });
     };
 
-    const title = listStore ? (listStore.name) : (localize('todoList.notTodoList'));
+    const title = listStore ? (listStore.name) : (localize('todoList.theListIsNot'));
     const header = <Header title={title} onDelete={()=>onDelete({title, boardId, listId})}/>
 
     return (
