@@ -14,5 +14,12 @@
         "fieldName": "Название",
         "listId": "ID",
         "rmListDecription": "Вы действительно хотите удалить список"
+    },
+    "todoCardForm": {
+        "cardNameLocalizedText": "Название карточки",
+        "descriptionLocalizedText": "Описание",
+        "stateLocalizedText": "Состояние",
+        "confirmLocalizedText": "Принять",
+        "cancelLocalizedText": "Отмена"
     }
 }
