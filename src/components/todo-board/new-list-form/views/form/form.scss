@@ -1,0 +1,54 @@
+.todo-board .new-list-form .form-container .form {
+    padding: 7px 30px 7px 0;
+
+    .fields {
+        font-size: 12px;
+        
+        .field {
+            div {
+                padding: 0 0 0 15px;
+            }
+            input {
+                width: 100%;
+                padding: 0;
+                border: 1px solid #ccc;
+            }
+            .input.not-valid input {
+                box-shadow: 0 0 3px #f00;
+                border: 1px solid #a00;
+            }
+        }
+    }
+    .buttons {
+            position: absolute;
+            height: 100%;
+            top: 0;
+            right: 0;
+            width: 30px;
+
+        .button {
+            height: 50%;
+            position: relative;
+            cursor: pointer;
+        
+            i {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .confirm {
+            color: #090;
+        }
+        .unconfirm {
+            color: #900;
+        }
+        .confirm:hover {
+            color: #0e0;
+        }
+        .unconfirm:hover {
+            color: #e00;
+        } 
+    }
+}
