@@ -1,7 +1,7 @@
 .todo-board .new-list-form {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 35px;
     overflow: hidden;
 
     background: linear-gradient(rgba(220,220,220,.7), rgba(240,240,240,.7), rgba(240,240,240,.7), rgba(220,220,220,.7)); 
@@ -10,19 +10,12 @@
     user-select: none;
 
     .showing-form-button-container {
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
     }
 
     .form-container {
-        position: absolute;
-        left: 0;
-        top: 0;
         width: 100%;
         height: 100%;
-
     }
 }
