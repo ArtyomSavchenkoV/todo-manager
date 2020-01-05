@@ -6,7 +6,12 @@ import {
 import {
     addNewBoard,
     removeBoard
-} from './board-list-actions';
+} from './boards-list-actions';
+
+import {
+    addNewList,
+    removeList
+} from './board-actions';
 
 
 export {
@@ -14,5 +19,8 @@ export {
     removeModalWindow,
 
     addNewBoard,
-    removeBoard
+    removeBoard,
+  
+    addNewList,
+    removeList
 };
