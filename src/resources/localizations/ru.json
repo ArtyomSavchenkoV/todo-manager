@@ -3,6 +3,7 @@
     "confirm": "Принять",
     "cancel": "Отмена",
     "boardsList": {
+        "name": "Доска",
         "fieldName": "Название",
         "boardId": "ID",
         "rmBoardDecription": "Вы действительно хотите удалить доску",
@@ -10,7 +11,8 @@
     },
     "todoList": {
         "theListIsNot": "Списка нет",
+        "fieldName": "Название",
         "listId": "ID",
-        "rmBoardDecription": "Вы действительно хотите удалить список"
+        "rmListDecription": "Вы действительно хотите удалить список"
     }
 }
