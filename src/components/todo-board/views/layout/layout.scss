@@ -5,9 +5,9 @@
     }
 
     .lists-container {
-        
+        display: flex;
+
         .list-item-container{
-            display: inline-block;
             width: 300px;
         }
     }

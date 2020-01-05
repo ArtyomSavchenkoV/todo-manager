@@ -22,9 +22,10 @@ const Controller = ({
     ];
 
     let todoListsElements = dummy.map((el) => {
-        return (
-            <TodoList key={el.listId} listId={el.listId} boardId={boardId} />
-        );
+        return ({
+            element: <TodoList key={el.listId} listId={el.listId} boardId={boardId} />,
+            key: el.listId
+        });
     });
 
     todoListsElements.push({
