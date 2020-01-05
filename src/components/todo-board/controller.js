@@ -47,9 +47,9 @@ const Controller = ({
     }
 
     const boardName = boardStore ? (
-        localize('board.name') + ': ' + boardStore.name
+        localize('boardsList.name') + ': ' + boardStore.name
     ) : (
-        localize('board.theBoardIsNot')
+        localize('boardsList.theBoardIsNot')
     );
 
     const header = <Header boardName={boardName}/>;

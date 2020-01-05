@@ -73,7 +73,7 @@ class Controller extends Component {
         ) : null;
         const form = isFormShowed ? (
             <Form 
-                nameFieldLabel={localize('boardsList.fieldName')}
+                nameFieldLabel={localize('todoList.fieldName')}
                 nameFieldValue={nameFieldValue}
                 isNameFieldValid={isNameFieldValid}
                 onConfirm={this.onConfirm}
