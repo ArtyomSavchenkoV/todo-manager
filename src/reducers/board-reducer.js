@@ -1,7 +1,9 @@
+import todoListReducer from './todo-list-reducer';
+
 const initialBoardStore = {
     id: null,
     name: null,
-    cardList: []
+    todoLists: []
 };
 
 
@@ -17,6 +19,21 @@ const boardReducer = (boardStore = initialBoardStore, action, { counters }) => {
                 name: payload.name
             }
         }
+
+
+        case 'ADD_NEW_LIST': {
+            const {
+                payload
+            } = action;
+            return {
+                ...boardStore,
+                todoLists: [
+                    ...boardStore.todoLists,
+                    todoListReducer(undefined, action, { counters })
+                ]
+            }
+        }
+
 
         default: {
             return boardStore;
