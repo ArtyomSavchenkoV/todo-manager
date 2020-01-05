@@ -17,7 +17,7 @@ const Controller = () => {
                 />
                 <Route
                     path='/:id?'
-                    render={({ match }) => <TodoBoard boardId={match.params.id}/>}
+                    render={({ match }) => <TodoBoard boardId={Number.parseInt(match.params.id, 10)}/>}
                 />
                 <Route
                     render={() => <h2>404 - page not found.</h2>}

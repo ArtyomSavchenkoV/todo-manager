@@ -1,4 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import compose from '../../utils/compose';
+
+import {
+    addNewList,
+    removeList
+} from '../../actions';
 
 import TodoList from '../todo-list';
 
@@ -8,7 +15,10 @@ import NewListForm from './new-list-form';
 
 
 const Controller = ({
-    boardId
+    boardId,
+
+    addNewList,
+    removeList
 }) => {
 
     const header = <Header />;
@@ -28,8 +38,10 @@ const Controller = ({
         });
     });
 
+    console.log(boardId);
+
     todoListsElements.push({
-        element: <NewListForm onConfirm={()=>{}}/>,
+        element: <NewListForm onConfirm={(fields)=>addNewList({...fields, boardId})}/>,
         key: 'new-list-form'
     });
 
@@ -39,4 +51,17 @@ const Controller = ({
 };
 
 
-export default Controller;
+const mapStoreToProps = ({ boardsList }) => {
+    return {
+        boardsList
+    };
+};
+
+const mapDispatchToProps = {
+    addNewList,
+    removeList
+};
+
+export default compose(
+    connect(mapStoreToProps, mapDispatchToProps)
+)(Controller);

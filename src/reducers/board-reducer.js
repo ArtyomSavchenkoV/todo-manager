@@ -22,9 +22,6 @@ const boardReducer = (boardStore = initialBoardStore, action, { counters }) => {
 
 
         case 'ADD_NEW_LIST': {
-            const {
-                payload
-            } = action;
             return {
                 ...boardStore,
                 todoLists: [
