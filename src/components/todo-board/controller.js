@@ -14,21 +14,6 @@ import Layout from './views/layout';
 import Header from './views/header';
 import NewListForm from './new-list-form';
 
-/*
-*   Fetch data from store for required board by boardId  
-*/
-const fetchData = (boardsList, boardId) => {
-    const {
-        boards
-    } = boardsList;
-    const itemIndex = boards.findIndex(({ id }) => id === boardId);
-
-    if (itemIndex > -1) {
-        return boards[itemIndex]
-    }
-    return false;
-}
-
 
 const Controller = ({
     boardId,
@@ -89,3 +74,19 @@ export default compose(
     connect(mapStoreToProps, mapDispatchToProps),
     withLocalizationService
 )(Controller);
+
+
+/*
+*   Fetch data from store for required board by boardId  
+*/
+const fetchData = (boardsList, boardId) => {
+    const {
+        boards
+    } = boardsList;
+    const itemIndex = boards.findIndex(({ id }) => id === boardId);
+
+    if (itemIndex < 0) {
+        return false;
+    }
+    return boards[itemIndex];
+}

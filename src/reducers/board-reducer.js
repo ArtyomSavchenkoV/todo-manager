@@ -32,6 +32,33 @@ const boardReducer = (boardStore = initialBoardStore, action, { counters }) => {
         }
 
 
+        case 'REMOVE_LIST': {
+            const {
+                payload
+            } = action;
+
+            const {
+                todoLists
+            } = boardStore;
+
+            const itemIndex = todoLists.findIndex(({ id }) => id === payload.listId);
+
+            const newTodoLists = (itemIndex > -1 && itemIndex < todoLists.length) ? (
+                [
+                    ...todoLists.slice(0, itemIndex),
+                    ...todoLists.slice(itemIndex + 1)
+                ]
+            ) : (
+                [...todoLists]
+            );
+
+            return {
+                ...boardStore,
+                todoLists: newTodoLists
+            }
+        }
+
+
         default: {
             return boardStore;
         }

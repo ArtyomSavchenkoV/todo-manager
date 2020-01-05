@@ -4,7 +4,8 @@ import './header.scss';
 
 
 const Header = ({
-    title
+    title,
+    onDelete
 }) => {
 
     return (
@@ -13,7 +14,7 @@ const Header = ({
                 {title}
             </div>
             <div className="buttons">
-                <div className="delete">
+                <div className="delete" onClick={onDelete}>
                     <i className="fa fa-trash" aria-hidden="true"></i>
                 </div>
             </div>
