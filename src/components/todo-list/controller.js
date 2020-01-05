@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Layout from './views/layout';
+import Header from './views/header';
 
 
 const Controller = ({
@@ -8,8 +9,10 @@ const Controller = ({
     listId
 }) => {
 
+    const header = <Header title="##title" />
+
     return (
-        <Layout />    
+        <Layout header={header} cardsElements={[]}/>    
     );
 };
 
