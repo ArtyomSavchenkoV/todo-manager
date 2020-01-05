@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import compose from '../../utils/compose';
 
+import { withLocalizationService } from '../hoc';
+
 import {
-    addNewList,
-    removeList
+    addNewList
 } from '../../actions';
 
 import TodoList from '../todo-list';
@@ -13,37 +14,60 @@ import Layout from './views/layout';
 import Header from './views/header';
 import NewListForm from './new-list-form';
 
+/*
+*   Fetch data from store for required board by boardId  
+*/
+const fetchData = (boardsList, boardId) => {
+    const {
+        boards
+    } = boardsList;
+    const itemIndex = boards.findIndex(({ id }) => id === boardId);
+
+    if (itemIndex > -1) {
+        return boards[itemIndex]
+    }
+    return false;
+}
+
 
 const Controller = ({
     boardId,
+    boardsList,
 
     addNewList,
-    removeList
+
+    localize
 }) => {
 
-    const header = <Header />;
+    const boardStore = fetchData(boardsList, boardId);
 
-    const dummy = [
-        {listId: 1},
-        {listId: 2},
-        {listId: 3},
-        {listId: 4},
-        {listId: 5}
-    ];
+    let todoListsElements = [];
 
-    let todoListsElements = dummy.map((el) => {
-        return ({
-            element: <TodoList key={el.listId} listId={el.listId} boardId={boardId} />,
-            key: el.listId
+    if (boardStore) {
+        const {
+            todoLists = []
+        } = boardStore;
+    
+        todoListsElements = todoLists.map((el) => {
+            return ({
+                element: <TodoList key={el.id} listId={el.id} boardId={boardId} />,
+                key: el.id
+            });
         });
-    });
 
-    console.log(boardId);
+        todoListsElements.push({
+            element: <NewListForm onConfirm={(fields)=>addNewList({...fields, boardId})}/>,
+            key: 'new-list-form'
+        });
+    }
 
-    todoListsElements.push({
-        element: <NewListForm onConfirm={(fields)=>addNewList({...fields, boardId})}/>,
-        key: 'new-list-form'
-    });
+    const boardName = boardStore ? (
+        localize('board.name') + ': ' + boardStore.name
+    ) : (
+        localize('board.theBoardIsNot')
+    );
+
+    const header = <Header boardName={boardName}/>;
 
     return (
         <Layout header={header} todoListsElements={todoListsElements}/>
@@ -58,10 +82,10 @@ const mapStoreToProps = ({ boardsList }) => {
 };
 
 const mapDispatchToProps = {
-    addNewList,
-    removeList
+    addNewList
 };
 
 export default compose(
-    connect(mapStoreToProps, mapDispatchToProps)
+    connect(mapStoreToProps, mapDispatchToProps),
+    withLocalizationService
 )(Controller);
