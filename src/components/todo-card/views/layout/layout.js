@@ -1,9 +1,9 @@
-import React from './react';
+import React from 'react';
 
 import './layout.scss';
 
 
-const layout = () => {
+const Layout = () => {
 
     return (
         <div className="todo-card">

@@ -6,7 +6,7 @@ import Layout from './views/layout';
 const Controller = () => {
 
     return (
-        <layout />
+        <Layout />
     );
 };
 
