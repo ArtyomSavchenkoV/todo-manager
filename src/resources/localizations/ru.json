@@ -5,6 +5,12 @@
     "boardsList": {
         "fieldName": "Название",
         "boardId": "ID",
-        "rmBoardDecription": "Вы действительно хотите удалить доску"
+        "rmBoardDecription": "Вы действительно хотите удалить доску",
+        "theBoardIsNot": "Доски нет"
+    },
+    "todoList": {
+        "theListIsNot": "Списка нет",
+        "listId": "ID",
+        "rmBoardDecription": "Вы действительно хотите удалить список"
     }
 }
