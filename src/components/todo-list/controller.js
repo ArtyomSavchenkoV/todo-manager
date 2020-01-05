@@ -9,6 +9,7 @@ import {
     removeList 
 } from '../../actions';
 
+import TodoCard from '../todo-card';
 import DeleteElementDialogWindow from '../common/delete-element-dialog-window';
 import Layout from './views/layout';
 import Header from './views/header';
@@ -42,8 +43,24 @@ const Controller = ({
     const title = listStore ? (listStore.name) : (localize('todoList.theListIsNot'));
     const header = <Header title={title} onDelete={()=>onDelete({title, boardId, listId})} />
 
+    let cardsElements = [];
+    if (listStore) {
+        cardsElements = listStore.todoCards.map((el) => {
+            return {
+                component: (
+                    <TodoCard 
+                        boardId={boardId}
+                        listId={listId}
+                        cardId={el.id}
+                    />
+                ),
+                key: el.id
+            }
+        });
+    }
+
     return (
-        <Layout header={header} cardsElements={[]} />    
+        <Layout header={header} cardsElements={cardsElements} />    
     );
 };
 
