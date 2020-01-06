@@ -12,14 +12,26 @@ class Controller extends Component {
 
     render() {
         const {
+            titleLocalizedText,
+
             localize
         } = this.props;
+
+        const stubValues = {
+            name: '##name',
+            description: '##description',
+            state: '##NEW'
+        }
 
         const form = (
             <Form
                 cardNameLocalizedText={localize('todoCardForm.cardNameLocalizedText')}
                 descriptionLocalizedText={localize('todoCardForm.descriptionLocalizedText')}
                 stateLocalizedText={localize('todoCardForm.stateLocalizedText')}
+        
+                values={stubValues}
+
+                onEditField={()=>{}}
             />
         );
         const image = <Image />;
@@ -36,7 +48,7 @@ class Controller extends Component {
         return (
             <Layout>
                 <DialogWindowLayout 
-                    title={localize('todoCardForm.titleLocalizedText')}
+                    title={titleLocalizedText}
                     form={form}
                     image={image}
                     buttons={buttons}

@@ -7,7 +7,16 @@ export default ({
     cardNameLocalizedText,
     descriptionLocalizedText,
     stateLocalizedText,
+
+    values,
+
+    onEditField
 }) => {
+    const {
+        name,
+        description,
+        state
+    } = values;
 
     return (
         <div className="form">
@@ -17,7 +26,7 @@ export default ({
                         {cardNameLocalizedText}
                     </div>
                     <div className="value col-sm-6 float-left">
-                        <input type="text" />
+                        <input type="text" value={name}/>
                     </div>
                 </div>
                 <div className="field container-fluid">
@@ -25,9 +34,7 @@ export default ({
                         {descriptionLocalizedText}
                     </div>
                     <div className="value">
-                        <textarea>
-                            ##ta
-                        </textarea>
+                        <textarea value={description} />
                     </div>
                 </div>
                 <div className="field">
@@ -35,7 +42,7 @@ export default ({
                         {stateLocalizedText}
                     </div>
                     <div className="value col-sm-6 float-left">
-                        ##value
+                        {state}
                     </div>
                 </div>
             </div>         
