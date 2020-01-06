@@ -73,6 +73,36 @@ class Controller extends Component {
     }
 
 
+    componentDidMount () {
+        const {
+            values
+        } = this.props;
+
+        /*
+        *   Set initial values if this was received. 
+        */
+        if (typeof values === 'object') {
+            let isValuesValid = {};
+            for (let key in values) {
+                const value = values[key];
+                isValuesValid[key] = this.validateField({ field: key, value });
+            }
+            
+            this.setState((state) => { 
+                return {
+                    ...state,
+                    values: {
+                        ...values
+                    },
+                    isValuesValid: {
+                        ...isValuesValid 
+                    }
+                };
+            });
+        }
+    }
+
+
     render() {
         const {
             titleLocalizedText,
