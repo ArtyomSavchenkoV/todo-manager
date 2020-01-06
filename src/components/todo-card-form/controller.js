@@ -50,6 +50,24 @@ class Controller extends Component {
     }
 
 
+    /*
+    *   Check `state.isValuesValid` for valid all values.
+    */
+    checkIsValuesValid = () => {
+        const {
+            isValuesValid
+        } = this.state;
+
+        for (let key in isValuesValid) {
+            if (isValuesValid[key] !== true) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
     onEditField = ({ field, value }) => {
         let newValue = value;
         // To limit the length of the name
@@ -103,9 +121,26 @@ class Controller extends Component {
     }
 
 
+    onConfirm = () => {
+        if (this.checkIsValuesValid()) {
+            const {
+                onConfirm,
+                onCancel
+            } = this.props;
+            const {
+                values
+            } = this.state;
+            onConfirm(values);
+            onCancel();
+        }
+    }
+
+
     render() {
         const {
             titleLocalizedText,
+    
+            onCancel,
 
             localize
         } = this.props;
@@ -140,8 +175,8 @@ class Controller extends Component {
                 confirmLocalizedText={localize('confirm')}
                 cancelLocalizedText={localize('cancel')}
 
-                onConfirm={()=>{}}
-                onCancel={()=>{}}
+                onConfirm={this.onConfirm}
+                onCancel={onCancel}
             />
         );
 
