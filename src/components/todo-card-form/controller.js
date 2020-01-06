@@ -28,6 +28,12 @@ class Controller extends Component {
                 cardNameLocalizedText={localize('todoCardForm.cardNameLocalizedText')}
                 descriptionLocalizedText={localize('todoCardForm.descriptionLocalizedText')}
                 stateLocalizedText={localize('todoCardForm.stateLocalizedText')}
+                stateLocalizedValuesText={{
+                    newCard: localize('todoCard.state.newCard'),
+                    inProgress: localize('todoCard.state.inProgress'),
+                    finished: localize('todoCard.state.finished'),
+                    canselled: localize('todoCard.state.canselled')
+                }}
         
                 values={stubValues}
 

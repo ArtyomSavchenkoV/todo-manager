@@ -20,6 +20,11 @@
                     width: 100%;
                     height: 80px;
                 }
+                select {
+                    width: 100%;
+                    background: none;
+                    height: 30px;
+                }
             }
         }
         >.field::after {
