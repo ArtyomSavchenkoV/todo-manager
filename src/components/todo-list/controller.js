@@ -6,8 +6,11 @@ import { withLocalizationService } from '../hoc';
 import { 
     setModalWindow,
     removeModalWindow,
-    removeList 
+    removeList,
+    addNewCard
 } from '../../actions';
+
+import TodoCardForm from '../todo-card-form';
 
 import TodoCard from '../todo-card';
 import DeleteElementDialogWindow from '../common/delete-element-dialog-window';
@@ -24,10 +27,12 @@ const Controller = ({
     setModalWindow,
     removeModalWindow,
     removeList,
+    addNewCard,
 
     localize
 }) => {
     const listStore = fetchData(boardsList, boardId, listId);
+
     const onDelete = ({boardId, listId, title}) => {
         setModalWindow({
             component: (
@@ -41,9 +46,25 @@ const Controller = ({
         });
     };
 
+    const onAddCardButton = () => {
+        setModalWindow({
+            component: (
+                <TodoCardForm
+                    titleLocalizedText={localize('todoList.rmListDecription') + ': ' + title}
+                    onConfirm={(cardData)=>{
+                        addNewCard({boardId, listId, ...cardData});
+                        removeModalWindow();
+                    }}
+                    onCancel={removeModalWindow}
+                />
+            ),
+            onClickSpaceArea: removeModalWindow
+        });
+    };
+
     const title = listStore ? (listStore.name) : (localize('todoList.theListIsNot'));
     const header = <Header title={title} onDelete={() => onDelete({title, boardId, listId})} />
-    const addCardButton = <AddCardButton onClick={()=>{}} />;
+    const addCardButton = <AddCardButton onClick={onAddCardButton} />;
 
     let cardsElements = [];
     if (listStore) {
@@ -76,7 +97,8 @@ const mapStoreToProps = ({ boardsList }) => {
 const mapDispatchToProps = {
     setModalWindow,
     removeModalWindow,
-    removeList
+    removeList,
+    addNewCard
 };
 
 export default compose(
