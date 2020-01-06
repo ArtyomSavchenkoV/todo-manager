@@ -1,3 +1,6 @@
+import todoCardReducer from './todo-card-reducer';
+
+
 const initialTodoListStore = {
     id: null,
     name: null,
@@ -18,7 +21,7 @@ const todoListReducer = (todoListStore = initialTodoListStore, action, { counter
             }
         }
 
-        //TODO: Make command:
+
         case 'ADD_NEW_CARD': {
             const {
                 payload
@@ -26,8 +29,8 @@ const todoListReducer = (todoListStore = initialTodoListStore, action, { counter
             return {
                 ...todoListStore,
                 todoCards: [
-                    ...todoListStore.todoCards/*,
-                    boardReducer(undefined, action, { counters })*/
+                    ...todoListStore.todoCards,
+                    todoCardReducer(undefined, action, { counters })
                 ]
             }
         }
