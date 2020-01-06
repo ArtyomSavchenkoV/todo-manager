@@ -9,6 +9,40 @@ import Buttons from './views/buttons';
 
 
 class Controller extends Component {
+    constructor () {
+        super();
+
+        this.state = {
+            values: {
+                name: '',
+                description: '',
+                state: 'NEW'
+            },
+            isValuesValid: {    
+                name: false,
+                description: false,
+                state: true
+            }
+        };     
+    }
+
+
+    onEditField = ({ field, value }) => {
+        this.setState((state) => { 
+            return {
+                ...state,
+                values: {
+                    ...state.values,
+                    [field]: value 
+                },
+                isValuesValid: {
+                    ...state.isValuesValid,
+                    [field]: true 
+                }
+            };
+        });
+    }
+
 
     render() {
         const {
@@ -17,11 +51,11 @@ class Controller extends Component {
             localize
         } = this.props;
 
-        const stubValues = {
-            name: '##name',
-            description: '##description',
-            state: '##NEW'
-        }
+        const {
+            values,
+            isValuesValid
+        } = this.state;
+
 
         const form = (
             <Form
@@ -35,9 +69,10 @@ class Controller extends Component {
                     canselled: localize('todoCard.state.canselled')
                 }}
         
-                values={stubValues}
+                values={values}
+                isValuesValid={isValuesValid}
 
-                onEditField={()=>{}}
+                onEditField={this.onEditField}
             />
         );
         const image = <Image />;

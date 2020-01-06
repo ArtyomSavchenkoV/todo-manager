@@ -10,6 +10,7 @@ export default ({
     stateLocalizedValuesText,
 
     values,
+    isValuesValid,
 
     onEditField
 }) => {
@@ -22,7 +23,7 @@ export default ({
     return (
         <div className="form">
             <div className="fields">
-                <div className="field">
+                <div className={"field" + (isValuesValid.name ? '' : ' not-valid')}>
                     <div className="name col-sm-6 float-left">
                         {cardNameLocalizedText}:
                     </div>
@@ -30,7 +31,7 @@ export default ({
                         <input type="text" value={name} onChange={(event)=>{onEditField({field: 'name', value: event.target.value})}} />
                     </div>
                 </div>
-                <div className="field container-fluid">
+                <div className={"field container-fluid" + (isValuesValid.description ? '' : ' not-valid')}>
                     <div className="name">
                         {descriptionLocalizedText}:
                     </div>
@@ -38,7 +39,7 @@ export default ({
                         <textarea value={description} onChange={(event)=>{onEditField({field: 'description', value: event.target.value})}} />
                     </div>
                 </div>
-                <div className="field">
+                <div className={"field" + (isValuesValid.state ? '' : ' not-valid')}>
                     <div className="name col-sm-6 float-left">
                         {stateLocalizedText}:
                     </div>

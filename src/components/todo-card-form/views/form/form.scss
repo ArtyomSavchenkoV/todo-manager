@@ -27,6 +27,19 @@
                 }
             }
         }
+        >.field.not-valid {
+            >.value {                
+                input {
+                    border-color: red;
+                }
+                textarea {
+                    border-color: red;
+                }
+                select {
+                    border-color: red;
+                }
+            }
+        }
         >.field::after {
             content: '';
             display: block;
