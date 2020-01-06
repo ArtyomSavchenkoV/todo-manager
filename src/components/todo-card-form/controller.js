@@ -12,7 +12,14 @@ import Form from './views/form';
 import Image from './views/image';
 import Buttons from './views/buttons';
 
-
+/**
+*   The form for add or edit data of todo card
+*
+*   @param `titleLocalizedText` {string}
+*   @param `onConfirm` {function} The function receives data as object, which has following structure: {name, description, state}
+*   @param `onCancel` {function}
+*   @param `values` {object} (optional, for edit card) The object of initial form data, has following structure: {name, description, state}
+*/
 class Controller extends Component {
     constructor () {
         super();
