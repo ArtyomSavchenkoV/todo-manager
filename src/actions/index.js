@@ -13,6 +13,11 @@ import {
     removeList
 } from './board-actions';
 
+import {
+    addNewCard,
+    removeCard
+} from './todo-list-actions';
+
 
 export {
     setModalWindow,
@@ -22,5 +27,8 @@ export {
     removeBoard,
   
     addNewList,
-    removeList
+    removeList,
+
+    addNewCard,
+    removeCard
 };
