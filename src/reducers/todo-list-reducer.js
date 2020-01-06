@@ -23,15 +23,39 @@ const todoListReducer = (todoListStore = initialTodoListStore, action, { counter
 
 
         case 'ADD_NEW_CARD': {
-            const {
-                payload
-            } = action;
             return {
                 ...todoListStore,
                 todoCards: [
                     ...todoListStore.todoCards,
                     todoCardReducer(undefined, action, { counters })
                 ]
+            }
+        }
+
+
+        case 'REMOVE_CARD': {
+            const {
+                payload
+            } = action;
+
+            const {
+                todoCards
+            } = todoListStore;
+
+            const itemIndex = todoCards.findIndex(({ id }) => id === payload.cardId);
+
+            const newTodoCards = (itemIndex > -1 && itemIndex < todoCards.length) ? (
+                [
+                    ...todoCards.slice(0, itemIndex),
+                    ...todoCards.slice(itemIndex + 1)
+                ]
+            ) : (
+                [...todoCards]
+            );
+
+            return {
+                ...todoListStore,
+                todoCards: newTodoCards
             }
         }
 
