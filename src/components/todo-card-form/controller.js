@@ -124,14 +124,12 @@ class Controller extends Component {
     onConfirm = () => {
         if (this.checkIsValuesValid()) {
             const {
-                onConfirm,
-                onCancel
+                onConfirm
             } = this.props;
             const {
                 values
             } = this.state;
             onConfirm(values);
-            onCancel();
         }
     }
 
