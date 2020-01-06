@@ -70,7 +70,7 @@ const Controller = ({
     if (listStore) {
         cardsElements = listStore.todoCards.map((el) => {
             return {
-                component: (
+                element: (
                     <TodoCard 
                         boardId={boardId}
                         listId={listId}
