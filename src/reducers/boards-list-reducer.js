@@ -46,10 +46,12 @@ const boardsListReducer = (boardsListStore = initialBoardsListStore, action, { c
 
 
         /*
-        *   Betray actions of the board, lists, or cards to required board.
+        *   Transmit actions of the board, lists, or cards to required board.
         */
         case 'ADD_NEW_LIST': 
-        case 'REMOVE_LIST': {
+        case 'REMOVE_LIST': 
+        case 'ADD_NEW_CARD': 
+        case 'REMOVE_CARD': {
             const {
                 payload
             } = action;
