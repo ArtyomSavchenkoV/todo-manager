@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { withLocalizationService } from '../hoc';
 
+import DialogWindowLayout from '../common/dialog-window-layout';
 import Layout from './views/layout';
+import Form from './views/form';
+import Image from './views/image';
+import Buttons from './views/buttons';
 
 
 class Controller extends Component {
@@ -11,19 +15,33 @@ class Controller extends Component {
             localize
         } = this.props;
 
-        return (
-            <Layout
-                titleLocalizedText={localize('todoCardForm.titleLocalizedText')}
+        const form = (
+            <Form
                 cardNameLocalizedText={localize('todoCardForm.cardNameLocalizedText')}
                 descriptionLocalizedText={localize('todoCardForm.descriptionLocalizedText')}
                 stateLocalizedText={localize('todoCardForm.stateLocalizedText')}
-
-                confirmLocalizedText={localize('todoCardForm.confirmLocalizedText')}
-                cancelLocalizedText={localize('todoCardForm.cancelLocalizedText')}
+            />
+        );
+        const image = <Image />;
+        const buttons = (
+            <Buttons
+                confirmLocalizedText={localize('confirm')}
+                cancelLocalizedText={localize('cancel')}
 
                 onConfirm={()=>{}}
                 onCancel={()=>{}}
             />
+        );
+
+        return (
+            <Layout>
+                <DialogWindowLayout 
+                    title={localize('todoCardForm.titleLocalizedText')}
+                    form={form}
+                    image={image}
+                    buttons={buttons}
+                />
+            </Layout>
         );
     };
 };

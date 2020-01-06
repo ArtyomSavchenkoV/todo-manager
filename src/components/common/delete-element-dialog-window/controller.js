@@ -30,7 +30,6 @@ const Controller = ({
             onCancel={onCancel}
         />
     );
-
     const dialogWindowLayout = (
         <DialogWindowLayout 
             title={localize('deleting')}
