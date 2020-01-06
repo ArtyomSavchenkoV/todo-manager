@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { withLocalizationService } from '../hoc';
+import {
+    itemNameValidator,
+    itemDescriptionValidator,
+    cardStateValidator
+} from '../../utils/validators';
 
 import DialogWindowLayout from '../common/dialog-window-layout';
 import Layout from './views/layout';
@@ -27,17 +32,41 @@ class Controller extends Component {
     }
 
 
+    validateField = ({ field, value }) => {
+        switch (field) {
+            case 'name': {
+                return itemNameValidator(value)
+            }
+            case 'description': {
+                return itemDescriptionValidator(value)
+            }
+            case 'state': {
+                return cardStateValidator(value)
+            }
+            default: {
+                return false
+            }
+        }
+    }
+
+
     onEditField = ({ field, value }) => {
+        let newValue = value;
+        // To limit the length of the name
+        if (field === 'name') {
+            newValue = value.substr(0, 32);
+        }
+
         this.setState((state) => { 
             return {
                 ...state,
                 values: {
                     ...state.values,
-                    [field]: value 
+                    [field]: newValue 
                 },
                 isValuesValid: {
                     ...state.isValuesValid,
-                    [field]: true 
+                    [field]: this.validateField({ field, value: newValue }) 
                 }
             };
         });
