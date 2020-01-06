@@ -1,6 +1,7 @@
 const initialCountersStore = {
     boardId: 0,
-    listId: 0
+    listId: 0,
+    cardId: 0
 };
 
 
@@ -18,6 +19,14 @@ const countersReducer = (countersStore = initialCountersStore, action) => {
             return {
                 ...countersStore,
                 listId: countersStore.listId + 1
+            }
+        }
+
+
+        case 'ADD_NEW_CARD': {
+            return {
+                ...countersStore,
+                cardId: countersStore.cardId + 1
             }
         }
 
