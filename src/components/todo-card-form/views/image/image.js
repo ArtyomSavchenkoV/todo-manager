@@ -6,6 +6,6 @@ import './image.scss';
 export default () => {
 
     return (
-        <i className="icon fa fa-trash-o" aria-hidden="true"></i>
+        <i className="icon fa fa-pencil-square-o" aria-hidden="true"></i>
     );
 };

@@ -50,7 +50,7 @@ const Controller = ({
         setModalWindow({
             component: (
                 <TodoCardForm
-                    titleLocalizedText={localize('todoList.rmListDecription') + ': ' + title}
+                    titleLocalizedText={localize('todoCard.create')}
                     onConfirm={(cardData)=>{
                         addNewCard({boardId, listId, ...cardData});
                         removeModalWindow();

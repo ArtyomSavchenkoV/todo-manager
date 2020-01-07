@@ -165,7 +165,7 @@ class Controller extends Component {
                     newCard: localize('todoCard.state.newCard'),
                     inProgress: localize('todoCard.state.inProgress'),
                     finished: localize('todoCard.state.finished'),
-                    canselled: localize('todoCard.state.canselled')
+                    canselled: localize('todoCard.state.cancelled')
                 }}
         
                 values={values}
