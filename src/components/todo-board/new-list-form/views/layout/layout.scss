@@ -1,0 +1,21 @@
+.todo-board .new-list-form {
+    position: relative;
+    width: 100%;
+    height: 35px;
+    overflow: hidden;
+
+    background: linear-gradient(rgba(220,220,220,.7), rgba(240,240,240,.7), rgba(240,240,240,.7), rgba(220,220,220,.7)); 
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    user-select: none;
+
+    .showing-form-button-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .form-container {
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,26 @@
+.dialog-window-layout {
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 80px;
+
+    >.form-container {
+
+        >.title-container {
+            font-size: 32px;
+        }
+    }
+    >.image-container {
+        text-align: center;
+    }
+    >.buttons-container {
+        position: absolute;
+        bottom: 30px;
+        left: 0px;
+    }
+}
+
+.dialog-window-layout::after {
+    content: '';
+    display: block;
+    clear: both;
+}

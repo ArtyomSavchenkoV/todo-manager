@@ -1,0 +1,14 @@
+.todo-board {
+
+    >.header-container {
+        
+    }
+
+    >.lists-container {
+        display: flex;
+
+        .list-item-container{
+            width: 300px;
+        }
+    }
+}

@@ -44,20 +44,43 @@ const boardsListReducer = (boardsListStore = initialBoardsListStore, action, { c
             }
         }
 
-    
-        default: { 
-            const { payload = {} } = action;
-            const { boardIndex } = payload;
-            if (boardIndex !== undefined && boardsListStore[boardIndex] !== undefined) {
-                //TODO: Make produce boards array
-                const newBoards = [...boardsListStore.boards]
-                return {
-                    ...boardsListStore,
-                    boards: newBoards
-                };
-            } else {
-                return boardsListStore;
+
+        /*
+        *   Transmit actions of the board, lists, or cards to required board.
+        */
+        case 'ADD_NEW_LIST': 
+        case 'REMOVE_LIST': 
+        case 'ADD_NEW_CARD': 
+        case 'REMOVE_CARD': {
+            const {
+                payload
+            } = action;
+
+            const {
+                boards
+            } = boardsListStore;
+
+            const itemIndex = boards.findIndex(({ id }) => id === payload.boardId);
+
+            const newBoards = (itemIndex > -1 && itemIndex < boards.length) ? (
+                [
+                    ...boards.slice(0, itemIndex),
+                    boardReducer(boards[itemIndex], action, { counters }),
+                    ...boards.slice(itemIndex + 1)
+                ]
+            ) : (
+                [...boards]
+            );
+
+            return {
+                ...boardsListStore,
+                boards: newBoards
             }
+        }
+
+    
+        default: {
+            return boardsListStore;
         }
     }   
 };

@@ -1,0 +1,31 @@
+.todo-card .card-state {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #999;
+    color: #fff;
+
+    i {
+        position: absolute;
+        top: 47%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.todo-card .card-state.NEW {
+    background-color: #3adbff;
+}
+.todo-card .card-state.IN_PROGRESS {
+    background-color: #7d3aff;
+}
+.todo-card .card-state.FINISHED {
+    background-color: #1dbf00;
+}
+.todo-card .card-state.CANCELLED {
+    background-color: #000;
+}

@@ -1,0 +1,49 @@
+.todo-card-form .dialog-window-layout .form-container .form {
+
+    .fields {
+
+        >.field {
+            margin: 5px 0;
+
+            div {
+                margin-bottom: 5px;
+            }
+            >.name {
+
+            }
+            >.value {
+                
+                input {
+                    width: 100%;
+                }
+                textarea {
+                    width: 100%;
+                    height: 80px;
+                }
+                select {
+                    width: 100%;
+                    background: none;
+                    height: 30px;
+                }
+            }
+        }
+        >.field.not-valid {
+            >.value {                
+                input {
+                    border-color: red;
+                }
+                textarea {
+                    border-color: red;
+                }
+                select {
+                    border-color: red;
+                }
+            }
+        }
+        >.field::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
+}

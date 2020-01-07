@@ -1,0 +1,19 @@
+.todo-board>.header-container .header {
+    position: relative;
+    background: #d4e4ef;
+    
+    .buttons {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        .come-to-back-button {
+            padding: 0 16px;
+        }
+    }
+
+    .title {
+        text-align: center;
+        font-size: 18px;
+    }
+}

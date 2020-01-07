@@ -1,0 +1,63 @@
+.todo-card {
+    padding: 5px;
+
+    >.header {
+        height: 30px;
+        padding: 0 35px;
+        position: relative;
+        background-color: #ececec;
+
+        .card-state-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 100%;
+        }
+        .title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .delete-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 100%;
+            color: #ccc;
+            cursor: pointer;
+            
+            i {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .delete-button:hover {
+            color: red;
+        }
+    }
+    >.content-container {
+
+    }
+    >.footer {
+        display: flex;
+
+        .date-container {
+            width: 50%;
+        }
+        .buttons-container {
+            width: 50%;
+            text-align: right;
+        }
+    }
+}
+
+.todo-card::after {
+    content: '';
+    display: block;
+    clear: both;
+}

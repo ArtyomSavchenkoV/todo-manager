@@ -1,8 +1,11 @@
 import React from 'react';
 import { withLocalizationService } from '../../hoc';
 
-import DeleteElementDialogWindow from './views/delete-element-dialog-window';
-
+import DialogWindowLayout from '../dialog-window-layout';
+import Layout from './views/layout';
+import Form from './views/form';
+import Image from './views/image';
+import Buttons from './views/buttons';
 
 const Controller = ({
     descriptionLocalizedText,
@@ -15,16 +18,31 @@ const Controller = ({
         onConfirm();
         onCancel();
     }
-    
-    return (
-        <DeleteElementDialogWindow 
-            titleLocalizedText={localize('deleting')}
-            descriptionLocalizedText={descriptionLocalizedText}
+
+    const form = <Form descriptionLocalizedText={descriptionLocalizedText} />;
+    const image = <Image />;
+    const buttons = (
+        <Buttons
             confirmLocalizedText={localize('confirm')}
             cancelLocalizedText={localize('cancel')}
+
             onConfirm={onConfirmWithClose}
             onCancel={onCancel}
         />
+    );
+    const dialogWindowLayout = (
+        <DialogWindowLayout 
+            title={localize('deleting')}
+            form={form}
+            image={image}
+            buttons={buttons}
+        />
+    );
+    
+    return (
+        <Layout> 
+            {dialogWindowLayout}
+        </Layout>
     );
 };
 
