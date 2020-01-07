@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './card-state';
+import './card-state.scss';
 
 
 export default ({
@@ -28,7 +28,7 @@ export default ({
     }
 
     return (
-        <div className="card-state">
+        <div className={`card-state ${cardState}`}>
             <i className={`fa ${classStateIcon}`} aria-hidden="true"></i>
         </div>
     );

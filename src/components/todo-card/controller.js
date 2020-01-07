@@ -1,12 +1,21 @@
 import React from 'react';
 
 import Layout from './views/layout';
+import CardState from './views/card-state';
 
 
 const Controller = () => {
 
+    const cardState = <CardState cardState="" />
+
     return (
-        <Layout />
+        <Layout 
+            cardState={cardState}
+            title={'##title'}
+            content={'##content'}
+            date={'##date'}
+            buttons={'##buttons'}
+        />
     );
 };
 
