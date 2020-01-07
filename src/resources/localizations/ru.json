@@ -15,6 +15,17 @@
         "listId": "ID",
         "rmListDecription": "Вы действительно хотите удалить список"
     },
+    "todoCard":{
+        "create": "Создать новую карточку",
+        "edit": "Редактирование карточки",
+        "rmCardDescription": "Вы действительно хотите удалить карточку",
+        "state": {
+            "newCard": "Новая",
+            "inProgress": "На исполнении",
+            "finished": "Выполнена",
+            "cancelled": "Отклонена"
+        }
+    },
     "todoCardForm": {
         "cardNameLocalizedText": "Название карточки",
         "descriptionLocalizedText": "Описание",
