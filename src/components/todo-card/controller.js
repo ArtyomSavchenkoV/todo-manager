@@ -16,16 +16,32 @@ const Controller = ({
 }) => {
     const cardData = fetchData(boardsList, boardId, listId, cardId);
 
-    const cardState = <CardState cardState="" />
+    let content = null;
+    if (cardData) {
+        const {
+            name,
+            description,
+            state,
+            date
+        } = cardData;
+        const cardState = <CardState cardState={state} />;
+
+        content = (
+            <Layout
+                cardId={cardId}
+                cardState={cardState}
+                title={name}
+                content={description}
+                date={date}
+                buttons={'##buttons'}
+            />
+        );
+    }
 
     return (
-        <Layout 
-            cardState={cardState}
-            title={'##title'}
-            content={'##content'}
-            date={'##date'}
-            buttons={'##buttons'}
-        />
+        <React.Fragment>
+            {content}
+        </React.Fragment>
     );
 };
 
@@ -62,17 +78,3 @@ const fetchData = (boardsList, boardId, listId, cardId) => {
 
     return currentCardData;
 };
-
-/*
-id: 1
-
-name: "444"
-description: "55"
-state: "NEW"
-date: 1578336033321
-
-buttons:
-delete,
-edit,
-move
-*/
