@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import compose from '../../utils/compose';
 import { withLocalizationService } from '../hoc';
+import fetchObjectFromArrayById from '../../utils/fetch-object-from-array-by-id';
 
 import { 
     setModalWindow,
@@ -110,23 +111,15 @@ export default compose(
 /*
 *   Fetch data from store for required board by boardId  
 */
-const fetchData = (boardsList, boardId, listId) => {
-    const {
-        boards
-    } = boardsList;
-    const boardIndex = boards.findIndex(({ id }) => id === boardId);
-    if (boardIndex < 0) {
+const fetchData = (boardsList, boardId, listId) => {   
+    const currentBoard = fetchObjectFromArrayById(boardsList.boards, boardId);    
+    if (currentBoard === false) {
         return false;
     }
-     
-    const currentBoard = boards[boardIndex];    
-    const {
-        todoLists
-    } = currentBoard;
-    const listIndex = todoLists.findIndex(({ id }) => id === listId);
-    if (listIndex < 0) {
+    const currentTodoList = fetchObjectFromArrayById(currentBoard.todoLists, listId); 
+    if (currentTodoList === false) {
         return false;
     }
 
-    return todoLists[listIndex];
-}
+    return currentTodoList;
+};
