@@ -48,7 +48,7 @@ export default ({
                             <option value="NEW">{stateLocalizedValuesText.newCard}</option>
                             <option value="IN_PROGRESS">{stateLocalizedValuesText.inProgress}</option>
                             <option value="FINISHED">{stateLocalizedValuesText.finished}</option>
-                            <option value="CANSELLED">{stateLocalizedValuesText.canselled}</option>
+                            <option value="CANCELLED">{stateLocalizedValuesText.canselled}</option>
                         </select>
                     </div>
                 </div>

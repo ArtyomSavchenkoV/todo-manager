@@ -3,7 +3,7 @@ const cardStateValidator = (value) => {
         case 'NEW':
         case 'IN_PROGRESS':
         case 'FINISHED':
-        case 'CANSELLED': {
+        case 'CANCELLED': {
             return true;
         }
         default: {
