@@ -1,7 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import compose from '../../utils/compose';
+import { withLocalizationService } from '../hoc';
 import fetchObjectFromArrayById from '../../utils/fetch-object-from-array-by-id';
+import { 
+    setModalWindow,
+    removeModalWindow,
+    removeCard
+} from '../../actions';
+
+import DeleteElementDialogWindow from '../common/delete-element-dialog-window';
 
 import Layout from './views/layout';
 import CardState from './views/card-state';
@@ -12,7 +20,13 @@ const Controller = ({
     listId,
     cardId,
 
-    boardsList
+    boardsList,
+
+    setModalWindow,
+    removeModalWindow,
+    removeCard,
+
+    localize
 }) => {
     const cardData = fetchData(boardsList, boardId, listId, cardId);
 
@@ -34,6 +48,8 @@ const Controller = ({
                 content={description}
                 date={date}
                 buttons={'##buttons'}
+                
+                onDelete={() => onDelete({boardId, listId, cardId, title: name, setModalWindow, removeModalWindow, removeCard, localize})}
             />
         );
     }
@@ -52,8 +68,15 @@ const mapStoreToProps = ({ boardsList }) => {
     };
 };
 
+const mapDispatchToProps = {
+    setModalWindow,
+    removeModalWindow,
+    removeCard
+};
+
 export default compose(
-    connect(mapStoreToProps)
+    withLocalizationService,
+    connect(mapStoreToProps, mapDispatchToProps)
 )(Controller);
 
 
@@ -78,3 +101,20 @@ const fetchData = (boardsList, boardId, listId, cardId) => {
 
     return currentCardData;
 };
+
+
+/*
+*   Set modal window for delete card
+*/
+const onDelete = ({boardId, listId, cardId, title, setModalWindow, removeModalWindow, removeCard, localize}) => {
+        setModalWindow({
+            component: (
+                <DeleteElementDialogWindow
+                    descriptionLocalizedText={localize('todoCard.rmCardDescription') + ': ' + title}
+                    onConfirm={()=>removeCard({boardId, listId, cardId})}
+                    onCancel={removeModalWindow}
+                />
+            ),
+            onClickSpaceArea: removeModalWindow
+        });
+    };

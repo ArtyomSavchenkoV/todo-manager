@@ -8,7 +8,9 @@ const Layout = ({
     title,
     content,
     date,
-    buttons
+    buttons,
+
+    onDelete
 }) => {
 
     return (
@@ -20,7 +22,7 @@ const Layout = ({
                 <div className="title">
                     {title}
                 </div>
-                <div className="delete-button">
+                <div className="delete-button" onClick={onDelete}>
                     <i className="fa fa-trash" aria-hidden="true"></i>
                 </div>
             </div>
